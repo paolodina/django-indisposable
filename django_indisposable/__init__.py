@@ -7,4 +7,5 @@ from django.core.exceptions import ValidationError
 def validate(email):
     if email and '@' in email and MailChecker.MailChecker.is_blacklisted(email):
         host = email.rsplit('@', 1)[1]
-        raise ValidationError(_('%(host)s email addresses are not accepted'), params={'host': host})
+        # raise ValidationError(_('%(host)s email addresses are not accepted'), params={'host': host})
+        raise ValidationError(_('Le email %(host)s non sono accettate '), params={'host': host})
